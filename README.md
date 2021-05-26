@@ -6,6 +6,7 @@
 [Serviços e Componentes](#servicos)
 [Implementação](#implementacao)
 [Utilizando o código fonte](#codigofonte)
+[Observações](#observacoes)
 
 <a name="intro"/>
 ### Introdução
@@ -33,7 +34,7 @@ Dados que necessitam de segurança porém um pouco mais de velocidade no acesso 
 Uma base de dados extremamente rápida necessita de um pouco mais de atenção quanto as decisões técnicas. Por exemplo ao escolher uma ferramenta como um banco de dados relacional ele irá dizer "Ei não posso ir tão rápido preciso verificar algumas tabelas", ou seja precisaremos de algo mais versátil... Então recorreremos á um banco de dados não relacional que atenderá nossas requisições de forma bem performática com certeza, porém quando nossas requisições escalarem ele poderá nos dizer "Ei posso ser bem rápido, mas que tal pedir um pouco menos?", nesse caso ainda ficamos com uma espécie de gargalo, pois não existe bala de prata nesses casos. Contudo podemos pensar em uma forma de "pedir" menos dados e isso pode-se fazer guardando algumas respostas para entregar em consultas futuras.
 
 <a name="servicos"/>
-### SERVIÇOS E COMPONENTES
+### Serviços e Componentes
 
 Para consultar as fontes de dados foram planejados alguns serviços que devem ser implementados para resolver questões como: Fazer múltiplas conexões nos bancos de dados, tratar os dados recebidos,  implementar módulos de aprendizado de máquina para auxiliar nas analises, entre outros serviços que surgirem como requisito durante o planejamento / desenvolvimento.  Os serviços serão listados a seguir:
 
