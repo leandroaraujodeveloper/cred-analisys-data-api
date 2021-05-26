@@ -1,6 +1,32 @@
 version: "3.9"
 services:
-  web:
-    build: .
+  #  web:
+  #   build: .
+  #   ports:
+  #     - "5000:5000"
+  mongodb:
+    image : mongo
+    container_name: mongodb
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ~/.docker-conf/mongodb/database/:/data/db
     ports:
-      - "5000:5000"
+      - 27017:27017
+    restart: unless-stopped
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    hostname: "rabbitmq"
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - rabbitmq_go_net
+networks:
+  rabbitmq_go_net:
+    driver: bridge
